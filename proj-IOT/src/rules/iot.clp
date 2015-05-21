@@ -21,7 +21,7 @@
 
 
 (defrule email-guardachuva
-        (estado-metereologico chuva)
+        (condicao chuva)
         =>
         (assert (envia-email guardachuva))
         (printout t "a enviar email" crlf)
@@ -52,7 +52,7 @@
 
 
 (defrule bom-tempo-tarde
-        (estado-metereologico sol)
+        (condicao sol)
         (or (intensidade-sol media) (intensidade-sol baixa))
         =>
         (assert (luzes 3))
