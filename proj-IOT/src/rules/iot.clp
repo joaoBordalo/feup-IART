@@ -9,15 +9,15 @@
 )
 
 
-(deffacts factostempo
-        (Previsao-metereologica (condicao sol)
-                                (intensidade alta)
-                                (temperatura 30)
-                                (dia 12)
-                                (hora 23)
-                                (minuto 10)
-        )
-)
+;(deffacts factostempo
+ ;       (Previsao-metereologica (condicao sol)
+  ;                              (intensidade alta)
+   ;                             (temperatura 30)
+    ;                            (dia 12)
+     ;                           (hora 23)
+      ;                          (minuto 10)
+       ; )
+;)
 
 
 (defrule email-guardachuva
