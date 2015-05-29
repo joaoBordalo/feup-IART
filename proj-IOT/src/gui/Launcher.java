@@ -11,14 +11,16 @@ public class Launcher {
 	 */
 	
 	public static void main(String[] args)  throws JessException {
-		//motor= new Rete();
-		//motor.batch("rules/iot.clp");
-		//motor.reset();
-		MainMenu.main(null);
-		//motor.run();
-		 Scanner scanner = new Scanner(System.in);
+		
+		
+		Scanner scanner = new Scanner(System.in);
 		try {
-			Rete engine = new Rete();        
+			Rete engine = new Rete();  
+		MainMenu mainMenu = new MainMenu(engine);
+		mainMenu.setVisible(true);
+		 
+		
+			      
 			engine.batch("rules/iot.clp");
 			engine.reset();
 		

@@ -27,6 +27,7 @@ public class Factos extends JFrame {
 	private JSpinner spinner_1, spinner_2, spinner_3, spinner;
 	private JComboBox comboBox, comboBox_2, comboBox_1, comboBox_3;
 	private MainMenu mainMenu; 
+
 	
 
 	/**
@@ -187,10 +188,11 @@ public class Factos extends JFrame {
 	
 	private void runJESS() throws JessException{
 		String facto= "Previsao-metereologica (condicao " + comboBox.getSelectedItem() + ") (intensidade " + comboBox_1.getSelectedItem() +  ") (temperatura " + spinner.getValue() + ") (dia " + spinner_1.getValue() + ") (hora " + spinner_2.getValue() + ") (minuto " + spinner_3.getValue()+ ")";
-		Rete motor= new Rete();
-		motor.batch("rules/iot.clp");
-		motor.addDeffacts(new Deffacts("factostempo",facto , motor));
-		motor.reset();
-		motor.run();
+		//Rete motor= new Rete();
+		Rete engine= mainMenu.getGuiEngine();
+	
+		engine.addDeffacts(new Deffacts("factostempo",facto , engine));
+		engine.reset();
+		engine.run();
 	}
 }

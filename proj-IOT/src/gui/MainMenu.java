@@ -11,33 +11,26 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;*/
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import jess.Rete;
 
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
+	private Rete guiEngine;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainMenu frame = new MainMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu() {
+	public MainMenu(Rete engine) {
+		this.guiEngine= engine;
 		setTitle("INTERNET OF THINGS");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -81,5 +74,15 @@ public class MainMenu extends JFrame {
 		JButton btnCrditos = new JButton("Cr\u00E9ditos");
 		btnCrditos.setBounds(10, 227, 89, 23);
 		contentPane.add(btnCrditos);
+	}
+
+	
+
+	public Rete getGuiEngine() {
+		return guiEngine;
+	}
+
+	public void setGuiEngine(Rete guiEngine) {
+		this.guiEngine = guiEngine;
 	}
 }
