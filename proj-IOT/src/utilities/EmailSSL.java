@@ -11,7 +11,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
 public class EmailSSL {
-	public boolean sendEmail(String subjectText, String messageText,final String username,final String password, String recipientMail) {
+	public EmailSSL(String subjectText, String messageText,final String username,final String password, String recipientMail) {
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.fe.up.pt");
@@ -40,7 +40,7 @@ public class EmailSSL {
 			Transport.send(message);
  
 			//System.out.println("Done");
-			return true;
+			
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
