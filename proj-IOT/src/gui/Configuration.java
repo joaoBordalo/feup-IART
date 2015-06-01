@@ -76,6 +76,7 @@ public class Configuration extends JFrame {
 	 * Create the frame.
 	 */
 	public Configuration(MainMenu mainMenu) {
+		startfields();
 		setTitle("Configura\u00E7\u00F5es");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 354);
@@ -229,13 +230,9 @@ public class Configuration extends JFrame {
 	
 	public void setConfigs(){
 		emailPassword = emailfieldPassword.getText();
-		System.out.println(emailPassword);
 		emailEmail=emailtextFieldEmail.getText();
-		System.out.println(emailEmail);
 		emailUsername=textFieldUsername.getText();
-		System.out.println(emailUsername);
 		faceToken=facetextFieldToken.getText();
-		System.out.println(faceToken);
 	
 	}
 	public void loadConfigs()
@@ -246,5 +243,13 @@ public class Configuration extends JFrame {
 		facetextFieldToken.setText(faceToken);
 	}
 	
+	public void startfields()
+	{
+		emailPassword = "";
+		emailEmail="";
+		emailUsername="";
+		faceToken="";
+
+	}
 	
 }

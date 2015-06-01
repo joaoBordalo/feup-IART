@@ -14,7 +14,10 @@ public class EventHandler implements JessListener {
 	String facebookToken;
 	public EventHandler(MainMenu guiMainMenu) {
 		guiMenu=guiMainMenu;
-		
+		smtpUsername=new String();
+		smtpPassword=new String();
+		email=new String();
+		facebookToken=new String();
 	}
 	
     public void eventHappened(JessEvent je) throws JessException {
@@ -47,8 +50,11 @@ public class EventHandler implements JessListener {
             	if(newFact.getName().equals("MAIN::envia-email"))
             	{
             		String mssg = newFact.get(0).toString().replace('-', ' ');
+            		if(!smtpUsername.equals(""))
+            		{
             		new EmailSSL("IOT NOTIFICATION", mssg, smtpUsername, smtpPassword, email);
             		System.out.println("msg sent to smtp server by handler");
+            		}
             	}
             	
             	if(newFact.getName().equals("MAIN::envia-facebook"))
@@ -56,9 +62,10 @@ public class EventHandler implements JessListener {
             		//o primeiro argumento e esta string que ]e o token do fb 
             		//ir buscar a https://developers.facebook.com/tools/explorer
             		String mssg = newFact.get(0).toString().replace('-', ' ');
-            		new FacebookPublisher("CAACEdEose0cBAGp513kaaAmb7tHoeGzdduA9VSf4mT7VZBXWPrEhGI3wm5s284NPGJL1JfXerU0OcJ5p5ZBjd0ICfG7YP4hdfAJnh3wZAhiq2ErdRZBE2s6ugUyyqbO5wZB66JfDFBIwuYvtEo5B8rI4hSsErdpTb6fOLBHBu9A3u3uNhzaWDsNxdOT6IBkNnZBzWe3pWUEJ0nJGU9nHDtAE5ACBM0wFsZD",
-            				 mssg);
+            		if(!facebookToken.equals("")){
+            		new FacebookPublisher(facebookToken, mssg);
             		System.out.println("msg published to fb by handler");
+            		}
             	}
               break;
 

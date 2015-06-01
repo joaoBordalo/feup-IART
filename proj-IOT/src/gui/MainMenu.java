@@ -46,6 +46,8 @@ public class MainMenu extends JFrame {
 	 */
 	public MainMenu(FuzzyRete engine) {
 		this.guiEngine= engine;
+		configuration= new Configuration(MainMenu.this);
+		configuration.startfields();
 		setTitle("INTERNET OF THINGS");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

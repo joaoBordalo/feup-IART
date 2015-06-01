@@ -1,20 +1,13 @@
 
 package utilities;
 
-import java.util.Arrays;
-import java.util.List;
 
-import com.restfb.Connection;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
 import com.restfb.Version;
 import com.restfb.FacebookClient.AccessToken;
 import com.restfb.exception.FacebookException;
-import com.restfb.types.FacebookType;
-import com.restfb.types.FriendList;
-import com.restfb.types.Page;
-import com.restfb.types.Post;
 import com.restfb.types.User;
 
 
@@ -35,7 +28,7 @@ public class FacebookPublisher {
 	   *           If an error occurs while talking to the Facebook Graph API.
 	   */
 	  public static void main(String[] args) throws FacebookException {
-	    new FacebookPublisher("CAACEdEose0cBAC8RMZBZCVBHqVvkQ8ldz3Es3sl9WTvjZAZBLgTVDZBria0XwUuyQJ6Ah1sjwvoY9WuVPxPENq9SfQZAq2BRpyxsYqZC5398NWpBUOP3ifqEQJrVAB7bZAXZBUi0t0ZBIDFwpPkg26PCUZAj1Y7CvowrHZB9xCRXQ76PZAWgp1PLix3nw6ENFZBoJz8jd0yxH3bJ8BZCwOGaHg8yibAJAkku4GrOmkZD",
+	    new FacebookPublisher("CAACEdEose0cBAD7uuON4YGC2npM2IwZBwdhWfdVgwBvUZCnAzTsbG3ZCZBRXUFJbetDd5VkgCvPPXRwQLR1AvGsocb5I3hNh4ELmH9xIHasJQeYtahGDuKbTCF9HYX5vW8UgwIKPrFMfarNcMeEX1l0HLyXGhhs5blCG6ZB4ISmIX6DVeMjSiNeHahZChZC5pWLkwPBZCEEUzdJYlVa07G3VsrbthmZBaeAgZD",
 	    		 "IOT NOTIFICATION");
 	  }
 
