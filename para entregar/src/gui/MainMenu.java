@@ -12,6 +12,8 @@ import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;*/
 import javax.swing.JButton;
 
+import nrc.fuzzy.jess.FuzzyRete;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -20,17 +22,32 @@ import jess.Rete;
 public class MainMenu extends JFrame {
 
 	private JPanel contentPane;
-	private Rete guiEngine;
+	private FuzzyRete guiEngine;
+	private Configuration configuration;
 
 	/**
 	 * Launch the application.
 	 */
 
+	public Configuration getConfiguration() {
+		return configuration;
+	}
+
+
+
+	public void setConfiguration(Configuration configuration) {
+		this.configuration = configuration;
+	}
+
+
+
 	/**
 	 * Create the frame.
 	 */
-	public MainMenu(Rete engine) {
+	public MainMenu(FuzzyRete engine) {
 		this.guiEngine= engine;
+		configuration= new Configuration(MainMenu.this);
+		configuration.startfields();
 		setTitle("INTERNET OF THINGS");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -39,23 +56,23 @@ public class MainMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnDefinicoes = new JButton("Defini\u00E7\u00F5es");
-		btnDefinicoes.addActionListener(new ActionListener() {
+		JButton btnConfigurations = new JButton("Configura\u00E7\u00F5es");
+		btnConfigurations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//setVisible(false);
-				//Definicoes definicoes = new Definicoes(MainMenu.this);
-				//definicoes.setVisible(true);
+				setVisible(false);
+				configuration = new Configuration(MainMenu.this);
+				configuration.setVisible(true);
 				
 			}
 		});
-		btnDefinicoes.setBounds(27, 68, 148, 95);
-		contentPane.add(btnDefinicoes);
+		btnConfigurations.setBounds(27, 68, 148, 95);
+		contentPane.add(btnConfigurations);
 		
 		JButton buttonFactos = new JButton("Factos");
 		buttonFactos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				Factos factos= new Factos(MainMenu.this);
+				MenuTestFacts factos= new MenuTestFacts(MainMenu.this);
 				factos.setVisible(true);
 			}
 		});
@@ -74,15 +91,19 @@ public class MainMenu extends JFrame {
 		JButton btnCrditos = new JButton("Cr\u00E9ditos");
 		btnCrditos.setBounds(10, 227, 89, 23);
 		contentPane.add(btnCrditos);
+		/*
+		JButton btnRuleDefinition = new JButton("Defini\u00E7\u00E3o de Regras");
+		btnRuleDefinition.setBounds(141, 174, 148, 34);
+		contentPane.add(btnRuleDefinition);*/
 	}
 
 	
 
-	public Rete getGuiEngine() {
+	public FuzzyRete getGuiEngine() {
 		return guiEngine;
 	}
 
-	public void setGuiEngine(Rete guiEngine) {
+	public void setGuiEngine(FuzzyRete guiEngine) {
 		this.guiEngine = guiEngine;
 	}
 }

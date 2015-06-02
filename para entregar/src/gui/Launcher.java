@@ -2,6 +2,7 @@ package gui;
 
 import java.util.Scanner;
 
+import nrc.fuzzy.jess.FuzzyRete;
 import jess.*;
 public class Launcher {
 
@@ -15,7 +16,7 @@ public class Launcher {
 		
 		Scanner scanner = new Scanner(System.in);
 		try {
-			Rete engine = new Rete();  
+			FuzzyRete engine = new FuzzyRete();  
 		MainMenu mainMenu = new MainMenu(engine);
 		mainMenu.setVisible(true);
 		 
@@ -24,11 +25,10 @@ public class Launcher {
 			engine.batch("rules/iot.clp");
 			engine.reset();
 		
-		 engine.addJessListener(new EventHandler());
+		 engine.addJessListener(new EventHandler(mainMenu));
 		 engine.setEventMask(engine.getEventMask() | JessEvent.DEFRULE_FIRED | JessEvent.FACT | JessEvent.RESET );
 		 
-		 //engine.eval("(assert (cenas coisas))");
-		// engine.eval("(facts)");
+		 
 		 
 		 //command line interface (da jeito pa ver como estao as coisas, ]e so mandar para la comandos de jess directo)
 		
@@ -45,7 +45,7 @@ public class Launcher {
 			 {
 			 engine.eval(input);
 			 
-			 engine.run();	
+			 //engine.run();	
 			 
 			 }
 			 
